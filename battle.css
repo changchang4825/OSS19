@@ -1,0 +1,46 @@
+/* .container {
+    width: 100%;
+} */
+
+#home:hover {
+    opacity: .5;
+}
+
+.field {
+    margin: 30px 0px;
+}
+
+.state {
+    width: 250px;
+    height: 150px;
+    border: solid;
+    border-radius: 10%;
+    text-align: center;
+    margin: auto;
+}
+
+.monster {
+    width: 400px;
+    height: 400px;
+    border: solid;
+}
+
+h3 {
+    text-align: center;
+}
+
+#skill_box1, #skill_box3 {
+    text-align: right;
+}
+
+#skill_box1, #skill_box2 {
+    margin-bottom: 16px;
+}
+
+.skill {
+    width: 60%;
+}
+
+.skill_point {
+    font-size: small;
+}
