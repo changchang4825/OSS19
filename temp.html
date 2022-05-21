@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>battle</title>
+    </head>
+
+    <body>
+        <p id="current_stage">current stage</p>
+        <button id="win">win</button>
+        <button id="loose">loose</button>
+
+        <script>
+            let current_stage = document.querySelector("#current_stage")
+            current_stage.textContent = "current stage : " + window.localStorage.getItem("current_stage")
+
+            let win = document.querySelector("#win")
+            win.addEventListener("click", () => {
+                if (Number(window.localStorage.getItem("current_stage")) > Number(window.localStorage.getItem("last_stage"))) {
+                    window.localStorage.setItem("last_stage", window.localStorage.getItem("current_stage"))
+                }
+                location.href = "index.html"
+            })
+
+            let loose = document.querySelector("#loose")
+            loose.addEventListener("click", () => {
+                location.href = "index.html"
+            })
+        </script>
+    </body>
+</html>
