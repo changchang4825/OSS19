@@ -37,24 +37,27 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
         <script>
+            //진행상황 불러오기
             let last_stage = Number(window.localStorage.getItem("last_stage"))
             if (last_stage === null) {
                 last_stage = 0
             }
-            let stages = document.querySelector("#stages")
             
+            let stages = document.querySelector("#stages")
+            //오픈된 스테이지 생성
             for (let i=0; i<=last_stage && i<4; i++) {
                 let new_stage = document.createElement("div")
                 new_stage.classList.add("flex-grow-1", "shadow", "bg-success", "rounded-2", "py-5", "mx-2", "justify-content-between")
                 new_stage.id = "l" + (i+1)
 
                 let level = document.createElement("h3")
-                level.classList.add("text-center", "text-white")
+                level.classList.add("text-center", "text-white", "my-1")
                 level.textContent = "Level" + (i+1)
 
                 new_stage.appendChild(level)
                 stages.appendChild(new_stage)
             }
+            //닫힌 스테이지 생성
             for (let i=0; i<3-last_stage; i++) {
                 let new_stage = document.createElement("div")
                 new_stage.classList.add("flex-grow-1", "shadow", "bg-secondary", "rounded-2", "py-5", "mx-2")
@@ -67,6 +70,7 @@
                 stages.appendChild(new_stage)
             }
 
+            //최종 축하 메시지
             let message_box = document.querySelector("#message")
             let message = document.createElement("h1")
             if (last_stage >= 4) {
@@ -101,6 +105,7 @@
                 location.href="temp.html"
             })}
 
+            //리셋버튼
             let reset = document.querySelector("#reset")
             reset.addEventListener("click", () => {
                 last_stage = 0
