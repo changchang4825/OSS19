@@ -68,7 +68,7 @@ let wildPoketmon3_1 = {
     skill_point: [100, 100, 100, 100],
 };
 let wildPoketmon3_2 = {
-    name: "monsterJelly",
+    name: "monsterjelly",
     hp: 995,
     skill_name: ["Jellyfy", "Rage", "Inrage", "hpUp"], 
     kill_damage: [-100, -120, -210, 100],
