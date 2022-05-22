@@ -191,7 +191,7 @@ function enemy_change() {
 }
 
 function my_attack(skill_num) {
-    if (turn)
+    if (!turn) return;
     if (my_monster_state.skill_point[skill_num] > 0) {
         document.getElementById("skill_point" + (skill_num + 1)).innerHTML = "(" + --my_monster_state.skill_point[skill_num] + "/" + my_monster.skill_point[skill_num] + ")";
         if (my_monster_state.skill_damage[skill_num] < 0) {
