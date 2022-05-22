@@ -42,9 +42,9 @@ I tried to create a game that imitated this through the web.
 2. can go back to the homepage
 
 
-# how to extend our work
+# How to extend our work
 
-## we would develop more functions, such as action graphic.. player status... more event(run, catch)
+we would develop more functions, such as action graphic.. player status... more event(run, catch)
 
 ## Author
 
