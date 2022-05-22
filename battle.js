@@ -137,6 +137,7 @@ let enemy_monster;
 let enemy_monster_state;
 let current_stage;
 let current_enemy = 0;
+let turn = true;
 
 function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)) }
 
@@ -145,6 +146,7 @@ function my_change() {
     for (let i = 0; !is_alive[num]; i++) {
         if (i >= 3) {
             location.href = "index.html";
+            turn = true;
             return;
         }
         num = (num + 1) % 4;
@@ -164,6 +166,7 @@ function my_change() {
     document.getElementById("skill_point3").innerHTML = "(" + my_monster_state.skill_point[2] + "/" + my_monster.skill_point[2] + ")";
     document.getElementById("skill_point4").innerHTML = "(" + my_monster_state.skill_point[3] + "/" + my_monster.skill_point[3] + ")";
     document.getElementById("battle_log").innerHTML = "What to do...?";
+    turn = true;
 }
 
 function enemy_change() {
@@ -184,9 +187,11 @@ function enemy_change() {
     document.getElementById("enemy_hp").innerHTML = enemy_monster_state.hp + "/" + enemy_monster.hp;
     document.getElementById("enemy_image").src = "img/" + enemy_monster.name.toLowerCase() + ".gif";
     document.getElementById("battle_log").innerHTML = "What to do...?";
+    turn = true;
 }
 
 function my_attack(skill_num) {
+    if (turn)
     if (my_monster_state.skill_point[skill_num] > 0) {
         document.getElementById("skill_point" + (skill_num + 1)).innerHTML = "(" + --my_monster_state.skill_point[skill_num] + "/" + my_monster.skill_point[skill_num] + ")";
         if (my_monster_state.skill_damage[skill_num] < 0) {
@@ -198,6 +203,7 @@ function my_attack(skill_num) {
                 document.getElementById("battle_log").innerHTML += " <strong>Win!!!</strong>";
                 if (current_enemy < current_stage - 1) {
                     current_enemy++;
+                    turn = false;
                     sleep(2000).then(() => enemy_change());
                     return;
                 }
@@ -219,6 +225,7 @@ function my_attack(skill_num) {
         else {
             document.getElementById("battle_log").innerHTML = "Nothing happend..."
         }
+        turn = false;
         sleep(2000).then(() => enemy_attack());
     }
     else {
@@ -230,6 +237,7 @@ function enemy_attack() {
     let skill_num = Math.floor(Math.random() * 4);
     for (let i = 0; enemy_monster_state.hp === enemy_monster.hp && enemy_monster_state.skill_damage[skill_num] > 0; i++) {
         if (i >= 3) {
+            turn = true;
             return;
         }
         skill_num = (skill_num + 1) % 4;
@@ -254,6 +262,7 @@ function enemy_attack() {
         document.getElementById("battle_log").innerHTML = enemy_monster.name + "'s " + heal + " HP healed!!!";
         document.getElementById("enemy_hp").innerHTML = enemy_monster_state.hp + "/" + enemy_monster.hp;
     }
+    turn = true;
 }
 
 window.onload = () => {
