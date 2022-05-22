@@ -7,11 +7,12 @@
 
 # BackGround
 
-## interest in the Game like pocketmon, Many people play games like Pocket Monster. However, most Pokémon-based games are played on mobile devices, desktop devices, and proprietary Nintendo.
-## I tried to create a game that imitated this through the web.
+interest in the Game like pocketmon, Many people play games like Pocket Monster.    However, most Pokémon-based games are played on mobile devices, desktop devices, and proprietary Nintendo.
+I tried to create a game that imitated this through the web.
 
 # DemoVideo
 [PocketMonster Game](https://www.youtube.com/watch?v=b8QxCLRu6aE)
+   
 [Demo](https://www.youtube.com/watch?v=cToErIexj1g)
 
 
